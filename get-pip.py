@@ -133,11 +133,7 @@ def bootstrap(tmpdir=None):
     # specific for one of our packages, then we'll turn off the implicit
     # install of them.
     for arg in args:
-        try:
-            req = install_req_from_line(arg)
-        except Exception:
-            continue
-
+        
         if implicit_pip and req.name == "pip":
             implicit_pip = False
         elif implicit_setuptools and req.name == "setuptools":
